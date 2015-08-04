@@ -17,7 +17,7 @@ ContactsSchema = new SimpleSchema({
   }
 });
 
-Contacts = new Ground.Collection('Contacts');
+Contacts = new Meteor.Collection('Contacts');
 
 // if (Meteor.isCordova) Ground.Collection(Contacts);
 
@@ -40,6 +40,8 @@ Meteor.methods({
 });
 
 if ( Meteor.isClient ) {
+  Ground.Collection(Contacts);
+
   Ground.methodResume([
       'addContact',
       'editContact',
